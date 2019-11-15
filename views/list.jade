@@ -1,0 +1,12 @@
+div(data-role='page')
+    header(data-role='header')
+        h1= title
+    div(data-role='content')
+        - if(items.length)
+        ul(data-role='listview')
+            for item in items
+                li 
+                    a(href=item['href']): h3= (item['title'])
+                    
+                    a(href=item['href']): img(src=item['thumbnail'], alt='Thumbnail')
+                    
