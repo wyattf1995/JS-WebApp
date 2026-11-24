@@ -1,6 +1,8 @@
 const pgp = require("pg-promise");
-const connectionString =
-  "postgresql://postgres:iggycray1@localhost:5433/dvdrental";
+const connectionString = process.env.DATABASE_URL;
+if (!connectionString) {
+  throw new Error('DATABASE_URL is required');
+}
 const db = pgp(connectionString);
 
 db.connect(err => {
